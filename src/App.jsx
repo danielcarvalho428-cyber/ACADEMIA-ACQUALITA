@@ -334,10 +334,6 @@ export default function AcademiaAcqualitaLandingPage() {
               >
                 Missão, visão e valores que sustentam a marca.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
-                Esse conteúdo se encaixa melhor aqui porque fortalece a identidade da academia
-                antes da apresentação das modalidades.
-              </p>
             </div>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
