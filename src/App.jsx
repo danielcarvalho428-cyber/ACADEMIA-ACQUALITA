@@ -323,16 +323,6 @@ export default function AcademiaAcqualitaLandingPage() {
               <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
                 Por que escolher
               </p>
-              <h2
-                style={brandSerif}
-                className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
-              >
-                A sensação precisa ser de valor, não de panfleto.
-              </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-                A página agora vende mais ambiente, posicionamento e experiência sem perder a
-                essência da academia.
-              </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
