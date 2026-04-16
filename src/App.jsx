@@ -1,6 +1,6 @@
 import acqualitaLogo from './assets/acqualita-logo.png';
 
-function LogoMark({ size = 56 }) {
+function LogoMark({ size = 56, dark = false }) {
   return (
     <div
       className="relative shrink-0 overflow-hidden"
@@ -10,7 +10,11 @@ function LogoMark({ size = 56 }) {
       <img
         src={acqualitaLogo}
         alt=""
-        className="absolute left-1/2 top-0 h-[180%] w-auto max-w-none -translate-x-1/2 [filter:brightness(0)_saturate(100%)_invert(77%)_sepia(53%)_saturate(795%)_hue-rotate(63deg)_brightness(96%)_contrast(91%)]"
+        className={`absolute left-1/2 top-0 h-[180%] w-auto max-w-none -translate-x-1/2 ${
+          dark
+            ? ''
+            : '[filter:brightness(0)_saturate(100%)_invert(77%)_sepia(53%)_saturate(795%)_hue-rotate(63deg)_brightness(96%)_contrast(91%)]'
+        }`}
         style={{ clipPath: 'inset(0 0 42% 0)' }}
       />
     </div>
@@ -29,10 +33,8 @@ function BrandText({ dark = false }) {
         className={`flex items-end text-3xl font-semibold tracking-[0.08em] sm:text-4xl ${textColor}`}
       >
         <span>AC</span>
-
         <span className="relative inline-block mx-[0.02em]">
           <span>Q</span>
-
           <svg
             viewBox="0 0 56 16"
             aria-hidden="true"
@@ -47,7 +49,6 @@ function BrandText({ dark = false }) {
             />
           </svg>
         </span>
-
         <span>UALITÁ</span>
       </div>
 
@@ -58,66 +59,80 @@ function BrandText({ dark = false }) {
   );
 }
 
-function PurposeIcon({ type }) {
+function EssenceIcon({ type }) {
   if (type === 'mission') {
     return (
-      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
-        <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <circle cx="32" cy="32" r="4" fill="currentColor" />
-        <path d="M32 32 L47 18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M43 18 H50 V25" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-10 w-10">
+        <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="32" cy="32" r="3" fill="currentColor" />
       </svg>
     );
   }
 
   if (type === 'vision') {
     return (
-      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
+      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-10 w-10">
         <path
-          d="M10 32 C16 22, 24 17, 32 17 C40 17, 48 22, 54 32 C48 42, 40 47, 32 47 C24 47, 16 42, 10 32 Z"
+          d="M10 32 C16 22, 24 18, 32 18 C40 18, 48 22, 54 32 C48 42, 40 46, 32 46 C24 46, 16 42, 10 32 Z"
           fill="none"
           stroke="currentColor"
           strokeWidth="2.5"
         />
-        <circle cx="32" cy="32" r="7" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <circle cx="32" cy="32" r="2.5" fill="currentColor" />
+        <circle cx="32" cy="32" r="6" fill="none" stroke="currentColor" strokeWidth="2.5" />
       </svg>
     );
   }
 
   return (
-    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-10 w-10">
       <path
-        d="M32 12 L47 24 L41 45 H23 L17 24 Z"
+        d="M32 12 L46 22 L40 44 H24 L18 22 Z"
         fill="none"
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinejoin="round"
       />
-      <path d="M32 12 L23 24 L32 45 L41 24 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-      <path d="M17 24 H47" fill="none" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M18 22 H46" fill="none" stroke="currentColor" strokeWidth="2.5" />
     </svg>
   );
 }
 
 export default function AcademiaAcqualitaLandingPage() {
+  const brandSerif = { fontFamily: '"Cormorant Garamond", serif' };
+
   const whatsappNumber = '5562985921452';
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=Olá!%20Quero%20mais%20informações%20sobre%20a%20Academia%20Acqualitá.`;
   const instagramHref =
     'https://www.instagram.com/academiaacqualita?igsh=MXdoaW02amVqbW1kZA==';
   const mapsHref = 'https://maps.app.goo.gl/6K8yMepiibpA5NPQ7';
 
-  const brandSerif = { fontFamily: '"Cormorant Garamond", serif' };
-
-  const highlights = [
-    'Ambiente premium e acolhedor',
-    'Musculação, natação e hidroginástica',
-    'Estrutura para toda a família',
-    'Atendimento próximo e profissional',
+  const sellingPoints = [
+    'Estrutura premium',
+    'Ambiente familiar',
+    'Performance e bem-estar',
+    'Atendimento próximo',
   ];
 
-  const purposeItems = [
+  const modalityCards = [
+    {
+      title: 'Musculação',
+      text: 'Estrutura e acompanhamento para quem quer evolução de verdade.',
+      tone: 'dark',
+    },
+    {
+      title: 'Natação',
+      text: 'Aulas para bebês, crianças e adultos com técnica e acolhimento.',
+      tone: 'light',
+    },
+    {
+      title: 'Hidroginástica',
+      text: 'Movimento, mobilidade e bem-estar com baixo impacto.',
+      tone: 'light',
+    },
+  ];
+
+  const essence = [
     {
       key: 'mission',
       eyebrow: 'Missão',
@@ -128,9 +143,9 @@ export default function AcademiaAcqualitaLandingPage() {
     {
       key: 'vision',
       eyebrow: 'Visão',
-      title: 'Cumprir a missão com excelência e acolhimento.',
+      title: 'Ser reconhecida pelo cumprimento eficiente da missão.',
       text:
-        'Ser reconhecida pelo cumprimento eficiente da missão, aliado a um ambiente acolhedor e aconchegante.',
+        'Aliando excelência, acolhimento e um ambiente verdadeiramente aconchegante.',
     },
     {
       key: 'values',
@@ -141,37 +156,15 @@ export default function AcademiaAcqualitaLandingPage() {
     },
   ];
 
-  const modalities = [
-    {
-      title: 'Musculação',
-      text: 'Estrutura, acompanhamento e performance para quem busca evolução com constância.',
-    },
-    {
-      title: 'Natação',
-      text: 'Aulas para bebês, crianças e adultos, com foco em técnica, saúde e confiança na água.',
-    },
-    {
-      title: 'Hidroginástica',
-      text: 'Movimento, mobilidade e bem-estar com baixo impacto e excelente benefício para o corpo.',
-    },
-  ];
-
-  const experiencePoints = [
-    'Recepção acolhedora',
-    'Ambiente climatizado',
-    'Estrutura organizada',
-    'Experiência familiar',
-  ];
-
   return (
-    <div className="min-h-screen bg-[#f7f8fa] text-[#0B1F3A]">
+    <div className="min-h-screen bg-[#f4f6f8] text-[#0B1F3A]">
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.08),transparent_24%),radial-gradient(circle_at_90%_20%,rgba(11,31,58,0.08),transparent_22%),linear-gradient(180deg,#ffffff_0%,#f7f8fa_100%)]" />
-        <div className="absolute left-[-8rem] top-16 h-[20rem] w-[20rem] rounded-full bg-emerald-400/10 blur-3xl" />
-        <div className="absolute right-[-8rem] top-28 h-[18rem] w-[18rem] rounded-full bg-[#0B1F3A]/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.08),transparent_22%),linear-gradient(180deg,#ffffff_0%,#f4f6f8_100%)]" />
+        <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
+        <div className="absolute right-0 top-28 h-72 w-72 rounded-full bg-slate-900/8 blur-3xl" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/88 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#030303]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-4">
             <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:h-[4.5rem] sm:w-[4.5rem]">
@@ -182,13 +175,13 @@ export default function AcademiaAcqualitaLandingPage() {
 
           <div className="flex items-center gap-4">
             <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
-              <a href="#diferenciais" className="transition hover:text-white">
+              <a href="#porque" className="transition hover:text-white">
                 Diferenciais
               </a>
-              <a href="#proposito" className="transition hover:text-white">
+              <a href="#essencia" className="transition hover:text-white">
                 Essência
               </a>
-              <a href="#servicos" className="transition hover:text-white">
+              <a href="#modalidades" className="transition hover:text-white">
                 Modalidades
               </a>
               <a href="#contato" className="transition hover:text-white">
@@ -212,27 +205,27 @@ export default function AcademiaAcqualitaLandingPage() {
       </header>
 
       <main id="top">
-        <section className="relative overflow-hidden bg-[linear-gradient(135deg,#040404_0%,#0B1F3A_58%,#07111f_100%)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.20),transparent_24%),radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.10),transparent_18%)]" />
+        <section className="relative overflow-hidden bg-[linear-gradient(135deg,#020202_0%,#08182e_50%,#0b1f3a_100%)] text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.22),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_20%)]" />
           <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:pb-28 md:pt-24">
             <div className="relative z-10">
               <div className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-200 backdrop-blur-xl">
-                Experiência premium em saúde e movimento
+                Estrutura, acolhimento e performance
               </div>
 
               <h1
                 style={brandSerif}
-                className="mt-6 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-8xl"
+                className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl lg:text-[5.5rem]"
               >
-                Um lugar para
-                <span className="block bg-gradient-to-r from-white via-emerald-300 to-white bg-clip-text pb-2 text-transparent">
-                  treinar com presença.
+                O tipo de academia
+                <span className="block bg-gradient-to-r from-white via-emerald-300 to-white bg-clip-text text-transparent">
+                  que dá vontade de fazer parte.
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                Musculação, natação e hidroginástica em uma academia que combina estrutura,
-                acolhimento e uma atmosfera que convida você a fazer parte.
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/74 sm:text-lg">
+                Uma experiência premium para quem quer treinar com presença, cuidar da saúde
+                e sentir que encontrou um lugar certo para evoluir.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -242,22 +235,22 @@ export default function AcademiaAcqualitaLandingPage() {
                   rel="noreferrer"
                   className="rounded-full bg-gradient-to-r from-emerald-300 to-emerald-500 px-7 py-3.5 text-center text-sm font-semibold text-black shadow-[0_12px_35px_rgba(16,185,129,0.30)] transition hover:scale-[1.02]"
                 >
-                  Quero falar com a academia
+                  Quero conhecer a Acqualitá
                 </a>
 
                 <a
-                  href="#servicos"
+                  href="#modalidades"
                   className="rounded-full border border-white/14 bg-white/6 px-7 py-3.5 text-center text-sm font-semibold text-white transition hover:border-white/28 hover:bg-white/10"
                 >
-                  Conhecer modalidades
+                  Ver modalidades
                 </a>
               </div>
 
               <div className="mt-10 grid gap-3 sm:grid-cols-2">
-                {highlights.map((item) => (
+                {sellingPoints.map((item) => (
                   <div
                     key={item}
-                    className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-sm text-white/82 backdrop-blur-xl"
+                    className="rounded-[1.35rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-sm text-white/82 backdrop-blur-xl"
                   >
                     {item}
                   </div>
@@ -266,42 +259,55 @@ export default function AcademiaAcqualitaLandingPage() {
             </div>
 
             <div className="relative z-10">
-              <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-emerald-300/12 via-white/8 to-transparent blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2.5rem] border border-white/12 bg-white/7 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-                <div className="rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.04)_100%)] p-8">
-                  <div className="flex items-center gap-3">
-                    <LogoMark size={44} />
+              <div className="absolute inset-0 rounded-[2.8rem] bg-gradient-to-br from-emerald-300/15 via-white/8 to-transparent blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2.8rem] border border-white/12 bg-white/[0.07] p-7 shadow-[0_25px_80px_rgba(0,0,0,0.38)] backdrop-blur-2xl">
+                <div className="rounded-[2.2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.03)_100%)] p-8">
+                  <div className="flex items-center gap-4">
+                    <LogoMark size={46} />
                     <div>
                       <p className="text-xs uppercase tracking-[0.34em] text-emerald-300/90">
-                        Acqualitá
+                        Acqualitá Experience
                       </p>
-                      <p className="mt-1 text-sm text-white/65">
-                        Treino, família e bem-estar
+                      <p className="mt-1 text-sm text-white/62">
+                        Fitness, família e bem-estar
                       </p>
                     </div>
                   </div>
 
                   <h2
                     style={brandSerif}
-                    className="mt-6 text-4xl font-semibold leading-[1.04] text-white sm:text-5xl"
+                    className="mt-8 text-4xl font-semibold leading-[1.02] text-white sm:text-5xl"
                   >
-                    Mais do que uma academia.
+                    Presença visual. Estrutura real. Ambiente que convida.
                   </h2>
 
-                  <p className="mt-5 text-base leading-8 text-white/72">
-                    Um espaço pensado para quem quer cuidar do corpo, da rotina e da qualidade
-                    de vida em um ambiente profissional, acolhedor e marcante.
-                  </p>
+                  <div className="mt-8 grid gap-4">
+                    <div className="rounded-[1.4rem] border border-white/10 bg-black/20 px-5 py-4">
+                      <p className="text-sm uppercase tracking-[0.24em] text-white/38">
+                        Espaço
+                      </p>
+                      <p className="mt-2 text-base text-white/84">
+                        Academia pensada para transmitir qualidade logo no primeiro contato.
+                      </p>
+                    </div>
 
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {experiencePoints.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-[1.2rem] border border-white/10 bg-black/15 px-4 py-4 text-sm text-white/82"
-                      >
-                        {item}
-                      </div>
-                    ))}
+                    <div className="rounded-[1.4rem] border border-white/10 bg-black/20 px-5 py-4">
+                      <p className="text-sm uppercase tracking-[0.24em] text-white/38">
+                        Experiência
+                      </p>
+                      <p className="mt-2 text-base text-white/84">
+                        Um ambiente acolhedor para treinar com constância e confiança.
+                      </p>
+                    </div>
+
+                    <div className="rounded-[1.4rem] border border-white/10 bg-black/20 px-5 py-4">
+                      <p className="text-sm uppercase tracking-[0.24em] text-white/38">
+                        Estilo
+                      </p>
+                      <p className="mt-2 text-base text-white/84">
+                        Visual premium, atendimento próximo e rotina que inspira evolução.
+                      </p>
+                    </div>
                   </div>
 
                   <div className="mt-8 h-px w-full bg-gradient-to-r from-emerald-400/70 via-white/40 to-transparent" />
@@ -311,29 +317,34 @@ export default function AcademiaAcqualitaLandingPage() {
           </div>
         </section>
 
-        <section id="diferenciais" className="mx-auto max-w-7xl px-6 py-20">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <section id="porque" className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
-                Diferenciais
+                Por que escolher
               </p>
               <h2
                 style={brandSerif}
                 className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
               >
-                Uma experiência que vai além do treino.
+                A sensação precisa ser de valor, não de panfleto.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-                Estrutura, ambiente e atendimento organizados para transmitir mais desejo,
-                mais valor percebido e mais vontade de fazer parte da Acqualitá.
+                A página agora vende mais ambiente, posicionamento e experiência sem perder a
+                essência da academia.
               </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              {highlights.map((item) => (
+              {[
+                'Um lugar para treinar com presença',
+                'Estrutura para diferentes fases da vida',
+                'Atmosfera premium e acolhedora',
+                'Mais desejo de fazer parte da rotina da academia',
+              ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_12px_40px_rgba(2,6,23,0.06)]"
+                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_14px_40px_rgba(2,6,23,0.06)]"
                 >
                   <div className="mb-5 h-px w-16 bg-gradient-to-r from-[#050505] via-emerald-500 to-transparent" />
                   <p className="text-lg font-medium leading-8 text-[#0B1F3A]">{item}</p>
@@ -343,124 +354,192 @@ export default function AcademiaAcqualitaLandingPage() {
           </div>
         </section>
 
-        <section id="proposito" className="relative bg-[linear-gradient(180deg,#eaf8ee_0%,#f5fbf7_45%,#eef8f1_100%)] py-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.10),transparent_24%)]" />
+        <section id="essencia" className="relative overflow-hidden bg-[#08172c] py-20 text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.16),transparent_24%)]" />
           <div className="mx-auto max-w-7xl px-6">
-            <div className="rounded-[2.75rem] border border-emerald-100 bg-[#0b1528] p-8 text-white shadow-[0_22px_70px_rgba(2,6,23,0.10)] md:p-10">
-              <div className="max-w-3xl">
-                <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
-                  Nossa essência
-                </p>
-                <h2
-                  style={brandSerif}
-                  className="mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl"
-                >
-                  Missão, visão e valores que sustentam a marca.
-                </h2>
-              </div>
-
-              <div className="mt-10 grid gap-6 lg:grid-cols-3">
-                {purposeItems.map((item) => (
-                  <div
-                    key={item.key}
-                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 shadow-[0_12px_40px_rgba(0,0,0,0.10)] backdrop-blur-sm"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-400/10 text-emerald-300">
-                        <PurposeIcon type={item.key} />
-                      </div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-300">
-                        {item.eyebrow}
-                      </p>
-                    </div>
-
-                    <h3
-                      style={brandSerif}
-                      className="mt-6 text-3xl font-semibold leading-tight text-white"
-                    >
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-5 text-base leading-8 text-white/72">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="servicos" className="bg-[#0b1528] py-16 text-white">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mb-10 max-w-3xl">
+            <div className="mb-12 max-w-3xl">
               <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
-                Modalidades
+                Nossa essência
               </p>
               <h2
                 style={brandSerif}
-                className="mt-4 text-4xl font-semibold leading-tight text-white md:text-5xl"
+                className="mt-4 text-4xl font-semibold leading-tight md:text-6xl"
               >
-                Escolha a experiência que combina com você.
+                Missão, visão e valores com uma presença mais nobre na página.
               </h2>
-              <p className="mt-4 text-base leading-8 text-white/65">
-                Menos cara de folder, mais desejo de viver o ambiente, a estrutura e a rotina da academia.
+              <p className="mt-5 text-base leading-8 text-white/66">
+                Mantidos como parte central da identidade da academia, mas apresentados com mais
+                elegância e menos cara de material institucional.
               </p>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-3">
-              {modalities.map((item) => (
+            <div className="grid gap-6 lg:grid-cols-3">
+              {essence.map((item) => (
                 <div
-                  key={item.title}
-                  className="rounded-[2rem] border border-white/12 bg-white/[0.05] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.16)]"
+                  key={item.key}
+                  className="rounded-[2.2rem] border border-white/10 bg-white/[0.06] p-8 shadow-[0_18px_50px_rgba(0,0,0,0.20)] backdrop-blur-sm"
                 >
-                  <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">
-                    Modalidade
-                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-400/10 text-emerald-300">
+                      <EssenceIcon type={item.key} />
+                    </div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-300">
+                      {item.eyebrow}
+                    </p>
+                  </div>
+
                   <h3
                     style={brandSerif}
-                    className="mt-4 text-4xl font-semibold text-white"
+                    className="mt-6 text-3xl font-semibold leading-tight"
                   >
                     {item.title}
                   </h3>
-                  <p className="mt-5 text-base leading-7 text-white/68">{item.text}</p>
+
+                  <p className="mt-5 text-base leading-8 text-white/72">{item.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contato" className="mx-auto max-w-7xl px-6 pb-24 pt-20">
-          <div className="rounded-[2.25rem] border border-slate-200 bg-[#050505] p-8 text-white shadow-[0_20px_80px_rgba(0,0,0,0.18)] md:p-10">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
-                Contato
-              </p>
-              <h2
-                style={brandSerif}
-                className="mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl"
-              >
-                Venha conhecer a Academia Acqualitá.
-              </h2>
-              <p className="mt-5 text-base leading-8 text-white/70">
-                Fale com a equipe, conheça a estrutura e dê o próximo passo para fazer parte da experiência Acqualitá.
-              </p>
+        <section id="modalidades" className="relative py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-3xl">
+                <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
+                  Modalidades
+                </p>
+                <h2
+                  style={brandSerif}
+                  className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
+                >
+                  Três caminhos para viver a experiência Acqualitá.
+                </h2>
+              </div>
 
-              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-[#0B1F3A] shadow-sm transition hover:border-emerald-400 hover:text-emerald-700"
+              >
+                Agendar atendimento
+              </a>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr_0.85fr]">
+              {modalityCards.map((item, index) => (
+                <div
+                  key={item.title}
+                  className={`rounded-[2.3rem] border p-8 shadow-[0_18px_50px_rgba(2,6,23,0.07)] ${
+                    item.tone === 'dark'
+                      ? 'border-slate-200 bg-[linear-gradient(145deg,#0b1f3a_0%,#102949_100%)] text-white lg:min-h-[22rem]'
+                      : 'border-slate-200 bg-white text-[#0B1F3A] lg:min-h-[22rem]'
+                  }`}
+                >
+                  <p
+                    className={`text-sm uppercase tracking-[0.3em] ${
+                      item.tone === 'dark' ? 'text-emerald-300/80' : 'text-emerald-700/80'
+                    }`}
+                  >
+                    {index === 0 ? 'Destaque' : 'Modalidade'}
+                  </p>
+
+                  <h3
+                    style={brandSerif}
+                    className={`mt-5 text-4xl font-semibold leading-tight ${
+                      item.tone === 'dark' ? 'text-white' : 'text-[#0B1F3A]'
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    className={`mt-6 text-base leading-8 ${
+                      item.tone === 'dark' ? 'text-white/74' : 'text-slate-600'
+                    }`}
+                  >
+                    {item.text}
+                  </p>
+
+                  <div
+                    className={`mt-8 h-px w-full ${
+                      item.tone === 'dark'
+                        ? 'bg-gradient-to-r from-emerald-400/70 via-white/40 to-transparent'
+                        : 'bg-gradient-to-r from-[#050505] via-emerald-500 to-transparent'
+                    }`}
+                  />
+
+                  <p
+                    className={`mt-6 text-sm leading-7 ${
+                      item.tone === 'dark' ? 'text-white/64' : 'text-slate-500'
+                    }`}
+                  >
+                    {item.title === 'Musculação' &&
+                      'Para quem quer estrutura, performance e consistência.'}
+                    {item.title === 'Natação' &&
+                      'Para bebês, crianças e adultos com técnica e acolhimento.'}
+                    {item.title === 'Hidroginástica' &&
+                      'Para bem-estar, mobilidade e qualidade de vida.'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contato" className="mx-auto max-w-7xl px-6 pb-24 pt-8">
+          <div className="overflow-hidden rounded-[2.5rem] border border-slate-200 bg-[#050505] p-8 text-white shadow-[0_20px_80px_rgba(0,0,0,0.18)] md:p-10">
+            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
+                  Contato
+                </p>
+                <h2
+                  style={brandSerif}
+                  className="mt-4 text-4xl font-semibold leading-tight md:text-6xl"
+                >
+                  O próximo passo é sentir a Acqualitá de perto.
+                </h2>
+                <p className="mt-5 max-w-xl text-base leading-8 text-white/70">
+                  Fale com a equipe, conheça o ambiente e veja como a rotina da academia pode
+                  combinar com o que você busca.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
                 <a
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full bg-white px-7 py-3.5 text-center text-sm font-semibold text-[#050505] shadow-[0_12px_35px_rgba(255,255,255,0.10)] transition hover:scale-[1.02]"
+                  className="rounded-[1.75rem] bg-white px-6 py-6 text-[#050505] shadow-[0_12px_35px_rgba(255,255,255,0.10)] transition hover:scale-[1.02]"
                 >
-                  Chamar no WhatsApp
+                  <p className="text-sm uppercase tracking-[0.28em] text-slate-500">
+                    WhatsApp
+                  </p>
+                  <p className="mt-3 text-xl font-semibold">(62) 98592-1452</p>
                 </a>
+
                 <a
                   href={mapsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-center text-sm font-semibold text-white transition hover:border-emerald-300/50 hover:text-emerald-300"
+                  className="rounded-[1.75rem] border border-white/15 bg-white/5 px-6 py-6 transition hover:border-emerald-300/50"
                 >
-                  Abrir no Maps
+                  <p className="text-sm uppercase tracking-[0.28em] text-white/45">
+                    Localização
+                  </p>
+                  <p className="mt-3 text-xl font-semibold text-white">Abrir no Maps</p>
                 </a>
+
+                <div className="rounded-[1.75rem] border border-white/15 bg-white/5 px-6 py-6 sm:col-span-2">
+                  <p className="text-sm uppercase tracking-[0.28em] text-white/45">
+                    Endereço
+                  </p>
+                  <p className="mt-3 text-base leading-8 text-white/78">
+                    R. C-137, 741 - quadra 322 lote 2 - Jardim América, Goiânia - GO, 74275-060
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -486,7 +565,6 @@ export default function AcademiaAcqualitaLandingPage() {
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5">
                 <LogoMark size={42} />
               </div>
-
               <BrandText />
             </div>
 
