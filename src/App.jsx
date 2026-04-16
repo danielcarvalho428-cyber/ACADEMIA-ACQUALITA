@@ -322,45 +322,48 @@ export default function AcademiaAcqualitaLandingPage() {
           </div>
         </section>
 
-        <section id="proposito" className="mx-auto max-w-7xl px-6 pb-20">
-          <div className="overflow-hidden rounded-[2.75rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f5fbf7_100%)] p-8 shadow-[0_22px_70px_rgba(2,6,23,0.06)] md:p-10">
-            <div className="max-w-3xl">
-              <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
-                Essência Acqualitá
-              </p>
-              <h2
-                style={brandSerif}
-                className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
-              >
-                Missão, visão e valores que sustentam a marca.
-              </h2>
-            </div>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              {purposeItems.map((item) => (
-                <div
-                  key={item.key}
-                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_12px_40px_rgba(2,6,23,0.04)]"
+        <section id="proposito" className="relative bg-[linear-gradient(180deg,#eaf8ee_0%,#f5fbf7_45%,#eef8f1_100%)] py-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.10),transparent_24%)]" />
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="rounded-[2.75rem] border border-emerald-100 bg-[#0b1528] p-8 text-white shadow-[0_22px_70px_rgba(2,6,23,0.10)] md:p-10">
+              <div className="max-w-3xl">
+                <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
+                  Essência Acqualitá
+                </p>
+                <h2
+                  style={brandSerif}
+                  className="mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700">
-                      <PurposeIcon type={item.key} />
-                    </div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-700">
-                      {item.eyebrow}
-                    </p>
-                  </div>
+                  Missão, visão e valores que sustentam a marca.
+                </h2>
+              </div>
 
-                  <h3
-                    style={brandSerif}
-                    className="mt-6 text-3xl font-semibold leading-tight text-[#0B1F3A]"
+              <div className="mt-10 grid gap-6 lg:grid-cols-3">
+                {purposeItems.map((item) => (
+                  <div
+                    key={item.key}
+                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 shadow-[0_12px_40px_rgba(0,0,0,0.10)] backdrop-blur-sm"
                   >
-                    {item.title}
-                  </h3>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-400/10 text-emerald-300">
+                        <PurposeIcon type={item.key} />
+                      </div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-300">
+                        {item.eyebrow}
+                      </p>
+                    </div>
 
-                  <p className="mt-5 text-base leading-8 text-slate-600">{item.text}</p>
-                </div>
-              ))}
+                    <h3
+                      style={brandSerif}
+                      className="mt-6 text-3xl font-semibold leading-tight text-white"
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-5 text-base leading-8 text-white/72">{item.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
