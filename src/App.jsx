@@ -10,6 +10,7 @@ function LogoMark({ size = 56, dark = false }) {
       <img
         src={acqualitaLogo}
         alt=""
+        role="presentation"
         className={`absolute left-1/2 top-0 h-[180%] w-auto max-w-none -translate-x-1/2 ${
           dark
             ? ''
@@ -175,9 +176,6 @@ export default function AcademiaAcqualitaLandingPage() {
 
           <div className="flex items-center gap-4">
             <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
-              <a href="#porque" className="transition hover:text-white">
-                Diferenciais
-              </a>
               <a href="#essencia" className="transition hover:text-white">
                 Essência
               </a>
