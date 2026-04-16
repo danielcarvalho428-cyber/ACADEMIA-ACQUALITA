@@ -1,6 +1,60 @@
+import acqualitaLogo from './assets/acqualita-logo.png';
+
+function LogoMark({ size = 56 }) {
+  return (
+    <div
+      className="relative shrink-0 overflow-hidden"
+      style={{ width: size, height: size }}
+      aria-hidden="true"
+    >
+      <img
+        src={acqualitaLogo}
+        alt=""
+        className="absolute left-1/2 top-0 h-[180%] w-auto max-w-none -translate-x-1/2 [filter:brightness(0)_saturate(100%)_invert(77%)_sepia(53%)_saturate(795%)_hue-rotate(63deg)_brightness(96%)_contrast(91%)]"
+        style={{ clipPath: 'inset(0 0 42% 0)' }}
+      />
+    </div>
+  );
+}
+
+function BrandText() {
+  const brandSerif = { fontFamily: '"Cormorant Garamond", serif' };
+
+  return (
+    <div>
+      <div className="relative inline-block">
+        <p
+          style={brandSerif}
+          className="text-3xl font-semibold tracking-[0.08em] text-white sm:text-4xl"
+        >
+          ACQUALITÁ
+        </p>
+
+        <svg
+          viewBox="0 0 240 28"
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-2 left-[56px] h-4 w-[150px] sm:left-[66px] sm:w-[170px]"
+        >
+          <path
+            d="M8 16 C28 2, 50 2, 74 16 S122 30, 146 16 S194 2, 218 16"
+            fill="none"
+            stroke="rgb(110 231 183)"
+            strokeWidth="3.2"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+
+      <p className="mt-3 text-[10px] uppercase tracking-[0.55em] text-emerald-300 sm:text-xs">
+        ACADEMIA
+      </p>
+    </div>
+  );
+}
+
 export default function AcademiaAcqualitaLandingPage() {
   const whatsappNumber = '5562985921452';
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=Olá!%20Quero%20mais%20informações%20sobre%20a%20Academia%20Acqualita.`;
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=Olá!%20Quero%20mais%20informações%20sobre%20a%20Academia%20Acqualitá.`;
   const instagramHref =
     'https://www.instagram.com/academiaacqualita?igsh=MXdoaW02amVqbW1kZA==';
   const mapsHref = 'https://maps.app.goo.gl/6K8yMepiibpA5NPQ7';
@@ -24,16 +78,12 @@ export default function AcademiaAcqualitaLandingPage() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/88 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#top">
-            <p
-              style={brandSerif}
-              className="text-3xl font-semibold tracking-[0.08em] text-white sm:text-4xl"
-            >
-              ACQUALITÁ
-            </p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300 sm:text-xs">
-              ACADEMIA
-            </p>
+          <a href="#top" className="flex items-center gap-4">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:h-[4.5rem] sm:w-[4.5rem]">
+              <LogoMark size={50} />
+            </div>
+
+            <BrandText />
           </a>
 
           <div className="flex items-center gap-4">
@@ -53,7 +103,7 @@ export default function AcademiaAcqualitaLandingPage() {
               href={instagramHref}
               target="_blank"
               rel="noreferrer"
-              aria-label="Instagram da Academia Acqualita"
+              aria-label="Instagram da Academia Acqualitá"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white transition hover:scale-[1.04] hover:border-emerald-400 hover:text-emerald-300"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
@@ -78,13 +128,13 @@ export default function AcademiaAcqualitaLandingPage() {
                 className="mt-6 max-w-4xl text-5xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-8xl"
               >
                 Treino, cuidado
-                <span className="block pb-2 bg-gradient-to-r from-white via-emerald-300 to-white bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-white via-emerald-300 to-white bg-clip-text pb-2 text-transparent">
                   e elegância.
                 </span>
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                A Academia Acqualita une musculação, natação e hidroginástica em um
+                A Academia Acqualitá une musculação, natação e hidroginástica em um
                 ambiente sofisticado, acolhedor e completo para todas as idades.
               </p>
 
@@ -135,7 +185,7 @@ export default function AcademiaAcqualitaLandingPage() {
               <div className="relative overflow-hidden rounded-[2.5rem] border border-white/12 bg-white/7 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
                 <div className="rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.04)_100%)] p-8">
                   <p className="text-xs uppercase tracking-[0.34em] text-emerald-300/90">
-                    Acqualita Experience
+                    Acqualitá Experience
                   </p>
 
                   <h2
@@ -341,7 +391,7 @@ export default function AcademiaAcqualitaLandingPage() {
                 style={brandSerif}
                 className="mt-4 text-4xl font-semibold leading-tight text-white md:text-6xl"
               >
-                Venha conhecer a Academia Acqualita.
+                Venha conhecer a Academia Acqualitá.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/70">
                 Fale com a equipe no WhatsApp ou abra a localização da academia no mapa.
@@ -385,15 +435,24 @@ export default function AcademiaAcqualitaLandingPage() {
       <footer className="border-t border-[#0B1F3A]/10 bg-[#050505] px-6 py-10 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
           <div>
-            <p
-              style={brandSerif}
-              className="text-3xl font-semibold tracking-[0.08em] text-white"
-            >
-              ACQUALITÁ
-            </p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300">
-              ACADEMIA
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
+                <LogoMark size={36} />
+              </div>
+
+              <div>
+                <p
+                  style={brandSerif}
+                  className="text-3xl font-semibold tracking-[0.08em] text-white"
+                >
+                  ACQUALITÁ
+                </p>
+                <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300">
+                  ACADEMIA
+                </p>
+              </div>
+            </div>
+
             <p className="mt-3 text-sm leading-7 text-white/60">
               Treino, saúde e performance com uma experiência mais sofisticada e acolhedora.
             </p>
@@ -433,7 +492,7 @@ export default function AcademiaAcqualitaLandingPage() {
               </a>
             </div>
             <p className="mt-6 text-sm text-white/45">
-              © 2026 Academia Acqualita. Todos os direitos reservados.
+              © 2026 Academia Acqualitá. Todos os direitos reservados.
             </p>
           </div>
         </div>
