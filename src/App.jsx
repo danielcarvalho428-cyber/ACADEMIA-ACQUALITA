@@ -17,14 +17,16 @@ function LogoMark({ size = 56 }) {
   );
 }
 
-function BrandText() {
+function BrandText({ dark = false }) {
   const brandSerif = { fontFamily: '"Cormorant Garamond", serif' };
+  const textColor = dark ? 'text-[#0B1F3A]' : 'text-white';
+  const subColor = dark ? 'text-emerald-700' : 'text-emerald-300';
 
   return (
     <div>
       <div
         style={brandSerif}
-        className="flex items-end text-3xl font-semibold tracking-[0.08em] text-white sm:text-4xl"
+        className={`flex items-end text-3xl font-semibold tracking-[0.08em] sm:text-4xl ${textColor}`}
       >
         <span>AC</span>
 
@@ -49,7 +51,7 @@ function BrandText() {
         <span>UALITÁ</span>
       </div>
 
-      <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300 sm:text-xs">
+      <p className={`mt-1 text-[10px] uppercase tracking-[0.55em] sm:text-xs ${subColor}`}>
         ACADEMIA
       </p>
     </div>
@@ -108,11 +110,11 @@ export default function AcademiaAcqualitaLandingPage() {
 
   const brandSerif = { fontFamily: '"Cormorant Garamond", serif' };
 
-  const benefits = [
-    'Ambiente moderno, climatizado e acolhedor',
-    'Estrutura completa para treino, natação e bem-estar',
-    'Atendimento próximo e foco na sua evolução',
-    'Espaço pensado para toda a família',
+  const highlights = [
+    'Ambiente premium e acolhedor',
+    'Musculação, natação e hidroginástica',
+    'Estrutura para toda a família',
+    'Atendimento próximo e profissional',
   ];
 
   const purposeItems = [
@@ -126,7 +128,7 @@ export default function AcademiaAcqualitaLandingPage() {
     {
       key: 'vision',
       eyebrow: 'Visão',
-      title: 'Ser reconhecida por cumprir sua missão com excelência.',
+      title: 'Cumprir a missão com excelência e acolhimento.',
       text:
         'Ser reconhecida pelo cumprimento eficiente da missão, aliado a um ambiente acolhedor e aconchegante.',
     },
@@ -137,6 +139,28 @@ export default function AcademiaAcqualitaLandingPage() {
       text:
         'Excelência é nossa palavra de ordem. Cultivamos um ambiente direcionado pelo amor, respeito, união e alegria.',
     },
+  ];
+
+  const modalities = [
+    {
+      title: 'Musculação',
+      text: 'Estrutura, acompanhamento e performance para quem busca evolução com constância.',
+    },
+    {
+      title: 'Natação',
+      text: 'Aulas para bebês, crianças e adultos, com foco em técnica, saúde e confiança na água.',
+    },
+    {
+      title: 'Hidroginástica',
+      text: 'Movimento, mobilidade e bem-estar com baixo impacto e excelente benefício para o corpo.',
+    },
+  ];
+
+  const experiencePoints = [
+    'Recepção acolhedora',
+    'Ambiente climatizado',
+    'Estrutura organizada',
+    'Experiência familiar',
   ];
 
   return (
@@ -153,14 +177,13 @@ export default function AcademiaAcqualitaLandingPage() {
             <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:h-[4.5rem] sm:w-[4.5rem]">
               <LogoMark size={50} />
             </div>
-
             <BrandText />
           </a>
 
           <div className="flex items-center gap-4">
             <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
-              <a href="#beneficios" className="transition hover:text-white">
-                Benefícios
+              <a href="#diferenciais" className="transition hover:text-white">
+                Diferenciais
               </a>
               <a href="#proposito" className="transition hover:text-white">
                 Essência
@@ -191,7 +214,7 @@ export default function AcademiaAcqualitaLandingPage() {
       <main id="top">
         <section className="relative overflow-hidden bg-[linear-gradient(135deg,#040404_0%,#0B1F3A_58%,#07111f_100%)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.20),transparent_24%),radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.10),transparent_18%)]" />
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 md:grid-cols-[1.08fr_0.92fr] md:items-center md:pb-28 md:pt-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:pb-28 md:pt-24">
             <div className="relative z-10">
               <div className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-200 backdrop-blur-xl">
                 Experiência premium em saúde e movimento
@@ -199,17 +222,17 @@ export default function AcademiaAcqualitaLandingPage() {
 
               <h1
                 style={brandSerif}
-                className="mt-6 max-w-4xl text-5xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-8xl"
+                className="mt-6 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-8xl"
               >
-                Treino, cuidado
+                Um lugar para
                 <span className="block bg-gradient-to-r from-white via-emerald-300 to-white bg-clip-text pb-2 text-transparent">
-                  e elegância.
+                  treinar com presença.
                 </span>
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                A Academia Acqualitá une musculação, natação e hidroginástica em um
-                ambiente sofisticado, acolhedor e completo para todas as idades.
+                Musculação, natação e hidroginástica em uma academia que combina estrutura,
+                acolhimento e uma atmosfera que convida você a fazer parte.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -219,38 +242,26 @@ export default function AcademiaAcqualitaLandingPage() {
                   rel="noreferrer"
                   className="rounded-full bg-gradient-to-r from-emerald-300 to-emerald-500 px-7 py-3.5 text-center text-sm font-semibold text-black shadow-[0_12px_35px_rgba(16,185,129,0.30)] transition hover:scale-[1.02]"
                 >
-                  Falar no WhatsApp
+                  Quero falar com a academia
                 </a>
 
                 <a
-                  href="#contato"
+                  href="#servicos"
                   className="rounded-full border border-white/14 bg-white/6 px-7 py-3.5 text-center text-sm font-semibold text-white transition hover:border-white/28 hover:bg-white/10"
                 >
-                  Ver localização
+                  Conhecer modalidades
                 </a>
               </div>
 
-              <div className="mt-12 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-[1.75rem] border border-white/12 bg-white/6 p-5 backdrop-blur-xl">
-                  <p className="text-sm uppercase tracking-[0.28em] text-white/45">
-                    Treino
-                  </p>
-                  <p className="mt-3 text-xl font-semibold text-white">Musculação</p>
-                </div>
-                <div className="rounded-[1.75rem] border border-white/12 bg-white/6 p-5 backdrop-blur-xl">
-                  <p className="text-sm uppercase tracking-[0.28em] text-white/45">
-                    Aquático
-                  </p>
-                  <p className="mt-3 text-xl font-semibold text-white">Natação</p>
-                </div>
-                <div className="rounded-[1.75rem] border border-white/12 bg-white/6 p-5 backdrop-blur-xl">
-                  <p className="text-sm uppercase tracking-[0.28em] text-white/45">
-                    Bem-estar
-                  </p>
-                  <p className="mt-3 text-xl font-semibold text-white">
-                    Hidroginástica
-                  </p>
-                </div>
+              <div className="mt-10 grid gap-3 sm:grid-cols-2">
+                {highlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-sm text-white/82 backdrop-blur-xl"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -258,33 +269,39 @@ export default function AcademiaAcqualitaLandingPage() {
               <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-emerald-300/12 via-white/8 to-transparent blur-2xl" />
               <div className="relative overflow-hidden rounded-[2.5rem] border border-white/12 bg-white/7 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
                 <div className="rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.04)_100%)] p-8">
-                  <p className="text-xs uppercase tracking-[0.34em] text-emerald-300/90">
-                    Acqualitá Experience
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <LogoMark size={44} />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.34em] text-emerald-300/90">
+                        Acqualitá
+                      </p>
+                      <p className="mt-1 text-sm text-white/65">
+                        Treino, família e bem-estar
+                      </p>
+                    </div>
+                  </div>
 
                   <h2
                     style={brandSerif}
-                    className="mt-4 text-4xl font-semibold leading-[1.04] text-white sm:text-5xl"
+                    className="mt-6 text-4xl font-semibold leading-[1.04] text-white sm:text-5xl"
                   >
-                    Movimento com presença, conforto e cuidado.
+                    Mais do que uma academia.
                   </h2>
 
-                  <div className="mt-8 space-y-4">
-                    <div className="rounded-[1.5rem] border border-white/12 bg-black/15 px-5 py-4">
-                      <p className="text-sm text-white/85">
-                        Estrutura completa para treino, aulas aquáticas e bem-estar.
-                      </p>
-                    </div>
-                    <div className="rounded-[1.5rem] border border-white/12 bg-black/15 px-5 py-4">
-                      <p className="text-sm text-white/85">
-                        Um ambiente pensado para receber adultos, crianças e bebês.
-                      </p>
-                    </div>
-                    <div className="rounded-[1.5rem] border border-white/12 bg-black/15 px-5 py-4">
-                      <p className="text-sm text-white/85">
-                        Atendimento próximo, visual elegante e atmosfera premium.
-                      </p>
-                    </div>
+                  <p className="mt-5 text-base leading-8 text-white/72">
+                    Um espaço pensado para quem quer cuidar do corpo, da rotina e da qualidade
+                    de vida em um ambiente profissional, acolhedor e marcante.
+                  </p>
+
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {experiencePoints.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[1.2rem] border border-white/10 bg-black/15 px-4 py-4 text-sm text-white/82"
+                      >
+                        {item}
+                      </div>
+                    ))}
                   </div>
 
                   <div className="mt-8 h-px w-full bg-gradient-to-r from-emerald-400/70 via-white/40 to-transparent" />
@@ -294,28 +311,32 @@ export default function AcademiaAcqualitaLandingPage() {
           </div>
         </section>
 
-        <section id="beneficios" className="mx-auto max-w-7xl px-6 py-20">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <section id="diferenciais" className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
             <div>
               <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
-                Benefícios
+                Diferenciais
               </p>
               <h2
                 style={brandSerif}
                 className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
               >
-                Uma experiência exclusiva, com mais presença e sofisticação.
+                Uma experiência que vai além do treino.
               </h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Estrutura, ambiente e atendimento organizados para transmitir mais desejo,
+                mais valor percebido e mais vontade de fazer parte da Acqualitá.
+              </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              {benefits.map((benefit) => (
+              {highlights.map((item) => (
                 <div
-                  key={benefit}
+                  key={item}
                   className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_12px_40px_rgba(2,6,23,0.06)]"
                 >
                   <div className="mb-5 h-px w-16 bg-gradient-to-r from-[#050505] via-emerald-500 to-transparent" />
-                  <p className="text-lg font-medium leading-8 text-[#0B1F3A]">{benefit}</p>
+                  <p className="text-lg font-medium leading-8 text-[#0B1F3A]">{item}</p>
                 </div>
               ))}
             </div>
@@ -328,7 +349,7 @@ export default function AcademiaAcqualitaLandingPage() {
             <div className="rounded-[2.75rem] border border-emerald-100 bg-[#0b1528] p-8 text-white shadow-[0_22px_70px_rgba(2,6,23,0.10)] md:p-10">
               <div className="max-w-3xl">
                 <p className="text-sm uppercase tracking-[0.34em] text-emerald-300/85">
-                  Essência Acqualitá
+                  Nossa essência
                 </p>
                 <h2
                   style={brandSerif}
@@ -378,125 +399,31 @@ export default function AcademiaAcqualitaLandingPage() {
                 style={brandSerif}
                 className="mt-4 text-4xl font-semibold leading-tight text-white md:text-5xl"
               >
-                Treino, movimento e bem-estar.
+                Escolha a experiência que combina com você.
               </h2>
               <p className="mt-4 text-base leading-8 text-white/65">
-                Duas experiências centrais, apresentadas com mais clareza, menos ruído e
-                uma linguagem mais premium.
+                Menos cara de folder, mais desejo de viver o ambiente, a estrutura e a rotina da academia.
               </p>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-2">
-              <div className="rounded-[2rem] border border-white/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.08)_0%,rgba(34,197,94,0.08)_100%)] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.20)]">
-                <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">
-                  Treino
-                </p>
-                <h3
-                  style={brandSerif}
-                  className="mt-4 text-4xl font-semibold text-white"
+            <div className="grid gap-5 lg:grid-cols-3">
+              {modalities.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[2rem] border border-white/12 bg-white/[0.05] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.16)]"
                 >
-                  Musculação
-                </h3>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-white/70">
-                  Treino com estrutura, acompanhamento e performance em um ambiente
-                  pensado para evolução com conforto e presença.
-                </p>
-
-                <div className="mt-8 h-px w-full bg-gradient-to-r from-emerald-400/70 via-white/40 to-transparent" />
-
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-4">
-                    <p className="text-sm uppercase tracking-[0.26em] text-white/40">
-                      Estrutura
-                    </p>
-                    <p className="mt-2 text-base font-medium text-white">
-                      Treino com conforto e performance
-                    </p>
-                  </div>
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-4">
-                    <p className="text-sm uppercase tracking-[0.26em] text-white/40">
-                      Foco
-                    </p>
-                    <p className="mt-2 text-base font-medium text-white">
-                      Evolução física com acompanhamento
-                    </p>
-                  </div>
+                  <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">
+                    Modalidade
+                  </p>
+                  <h3
+                    style={brandSerif}
+                    className="mt-4 text-4xl font-semibold text-white"
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="mt-5 text-base leading-7 text-white/68">{item.text}</p>
                 </div>
-              </div>
-
-              <div className="rounded-[2rem] border border-white/12 bg-white/[0.04] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
-                <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">
-                  Aquático
-                </p>
-                <h3
-                  style={brandSerif}
-                  className="mt-4 text-4xl font-semibold text-white"
-                >
-                  Natação & Hidro
-                </h3>
-                <p className="mt-4 text-base leading-7 text-white/65">
-                  Atividades na água para diferentes fases da vida, com foco em
-                  acolhimento, saúde e bem-estar.
-                </p>
-
-                <div className="mt-6 divide-y divide-white/10">
-                  <div className="py-4 first:pt-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="text-xl font-semibold text-white">
-                          Natação para bebês
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/65">
-                          Segurança, adaptação e estímulo desde os primeiros anos.
-                        </p>
-                      </div>
-                      <div className="mt-1 shrink-0 text-emerald-300">↗</div>
-                    </div>
-                  </div>
-
-                  <div className="py-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="text-xl font-semibold text-white">
-                          Natação infantil
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/65">
-                          Aprendizado progressivo com confiança e coordenação.
-                        </p>
-                      </div>
-                      <div className="mt-1 shrink-0 text-emerald-300">↗</div>
-                    </div>
-                  </div>
-
-                  <div className="py-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="text-xl font-semibold text-white">
-                          Natação para adultos
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/65">
-                          Saúde, técnica e condicionamento para diferentes níveis.
-                        </p>
-                      </div>
-                      <div className="mt-1 shrink-0 text-emerald-300">↗</div>
-                    </div>
-                  </div>
-
-                  <div className="py-4 last:pb-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="text-xl font-semibold text-white">
-                          Hidroginástica
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/65">
-                          Movimento, mobilidade e bem-estar com baixo impacto.
-                        </p>
-                      </div>
-                      <div className="mt-1 shrink-0 text-emerald-300">↗</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -514,7 +441,7 @@ export default function AcademiaAcqualitaLandingPage() {
                 Venha conhecer a Academia Acqualitá.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/70">
-                Fale com a equipe no WhatsApp ou abra a localização da academia no mapa.
+                Fale com a equipe, conheça a estrutura e dê o próximo passo para fazer parte da experiência Acqualitá.
               </p>
 
               <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
