@@ -210,7 +210,7 @@ export default function AcademiaAcqualitaLandingPage() {
           <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:pb-28 md:pt-24">
             <div className="relative z-10">
               <div className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-200 backdrop-blur-xl">
-                Estrutura, acolhimento e performance
+                Academia em Goiânia com musculação, natação e hidroginástica
               </div>
 
               <h1
@@ -224,8 +224,9 @@ export default function AcademiaAcqualitaLandingPage() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/74 sm:text-lg">
-                Uma experiência premium para quem quer treinar com presença, cuidar da saúde
-                e sentir que encontrou um lugar certo para evoluir.
+                A Academia Acqualitá, no Jardim América em Goiânia, oferece uma experiência
+                premium para quem quer treinar com presença, cuidar da saúde e sentir que
+                encontrou um lugar certo para evoluir.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
