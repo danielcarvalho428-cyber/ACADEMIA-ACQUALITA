@@ -317,33 +317,6 @@ export default function AcademiaAcqualitaLandingPage() {
           </div>
         </section>
 
-        <section id="porque" className="mx-auto max-w-7xl px-6 py-20">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-            <div>
-              <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
-                Por que escolher
-              </p>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              {[
-                'Um lugar para treinar com presença',
-                'Estrutura para diferentes fases da vida',
-                'Atmosfera premium e acolhedora',
-                'Mais desejo de fazer parte da rotina da academia',
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_14px_40px_rgba(2,6,23,0.06)]"
-                >
-                  <div className="mb-5 h-px w-16 bg-gradient-to-r from-[#050505] via-emerald-500 to-transparent" />
-                  <p className="text-lg font-medium leading-8 text-[#0B1F3A]">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="essencia" className="relative overflow-hidden bg-[#08172c] py-20 text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.16),transparent_24%)]" />
           <div className="mx-auto max-w-7xl px-6">
