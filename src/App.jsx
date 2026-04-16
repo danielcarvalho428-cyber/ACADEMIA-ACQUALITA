@@ -329,11 +329,10 @@ export default function AcademiaAcqualitaLandingPage() {
                 style={brandSerif}
                 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl"
               >
-                Missão, visão e valores com uma presença mais nobre na página.
+                Missão, visão e valores.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/66">
-                Mantidos como parte central da identidade da academia, mas apresentados com mais
-                elegância e menos cara de material institucional.
+                Missão, visão e valores que sustentam a identidade da Academia Acqualitá.
               </p>
             </div>
 
