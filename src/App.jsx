@@ -22,30 +22,34 @@ function BrandText() {
 
   return (
     <div>
-      <div className="relative inline-block">
-        <p
-          style={brandSerif}
-          className="text-3xl font-semibold tracking-[0.08em] text-white sm:text-4xl"
-        >
-          ACQUALITÁ
-        </p>
+      <div
+        style={brandSerif}
+        className="flex items-end text-3xl font-semibold tracking-[0.08em] text-white sm:text-4xl"
+      >
+        <span>AC</span>
 
-        <svg
-          viewBox="0 0 240 28"
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-2 left-[56px] h-4 w-[150px] sm:left-[66px] sm:w-[170px]"
-        >
-          <path
-            d="M8 16 C28 2, 50 2, 74 16 S122 30, 146 16 S194 2, 218 16"
-            fill="none"
-            stroke="rgb(110 231 183)"
-            strokeWidth="3.2"
-            strokeLinecap="round"
-          />
-        </svg>
+        <span className="relative inline-block mx-[0.02em]">
+          <span>Q</span>
+
+          <svg
+            viewBox="0 0 56 16"
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[40%] top-[74%] h-3.5 w-8 -translate-x-1/2 sm:top-[76%] sm:h-4 sm:w-9"
+          >
+            <path
+              d="M4 10 C10 4, 18 4, 26 10 C33 14, 40 14, 50 8"
+              fill="none"
+              stroke="rgb(110 231 183)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </span>
+
+        <span>UALITÁ</span>
       </div>
 
-      <p className="mt-3 text-[10px] uppercase tracking-[0.55em] text-emerald-300 sm:text-xs">
+      <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300 sm:text-xs">
         ACADEMIA
       </p>
     </div>
@@ -436,21 +440,11 @@ export default function AcademiaAcqualitaLandingPage() {
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
-                <LogoMark size={36} />
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5">
+                <LogoMark size={42} />
               </div>
 
-              <div>
-                <p
-                  style={brandSerif}
-                  className="text-3xl font-semibold tracking-[0.08em] text-white"
-                >
-                  ACQUALITÁ
-                </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.55em] text-emerald-300">
-                  ACADEMIA
-                </p>
-              </div>
+              <BrandText />
             </div>
 
             <p className="mt-3 text-sm leading-7 text-white/60">
