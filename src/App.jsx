@@ -56,6 +56,49 @@ function BrandText() {
   );
 }
 
+function PurposeIcon({ type }) {
+  if (type === 'mission') {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
+        <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="32" cy="32" r="4" fill="currentColor" />
+        <path d="M32 32 L47 18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M43 18 H50 V25" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  if (type === 'vision') {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
+        <path
+          d="M10 32 C16 22, 24 17, 32 17 C40 17, 48 22, 54 32 C48 42, 40 47, 32 47 C24 47, 16 42, 10 32 Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        />
+        <circle cx="32" cy="32" r="7" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="32" cy="32" r="2.5" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-12 w-12">
+      <path
+        d="M32 12 L47 24 L41 45 H23 L17 24 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <path d="M32 12 L23 24 L32 45 L41 24 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M17 24 H47" fill="none" stroke="currentColor" strokeWidth="2.5" />
+    </svg>
+  );
+}
+
 export default function AcademiaAcqualitaLandingPage() {
   const whatsappNumber = '5562985921452';
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=Olá!%20Quero%20mais%20informações%20sobre%20a%20Academia%20Acqualitá.`;
@@ -70,6 +113,30 @@ export default function AcademiaAcqualitaLandingPage() {
     'Estrutura completa para treino, natação e bem-estar',
     'Atendimento próximo e foco na sua evolução',
     'Espaço pensado para toda a família',
+  ];
+
+  const purposeItems = [
+    {
+      key: 'mission',
+      eyebrow: 'Missão',
+      title: 'Promover saúde ao corpo e à alma.',
+      text:
+        'Através da atividade física, proporcionar saúde ao corpo e à alma, em um ambiente profissional e cristão para toda a família, visando a longevidade com qualidade.',
+    },
+    {
+      key: 'vision',
+      eyebrow: 'Visão',
+      title: 'Ser reconhecida por cumprir sua missão com excelência.',
+      text:
+        'Ser reconhecida pelo cumprimento eficiente da missão, aliado a um ambiente acolhedor e aconchegante.',
+    },
+    {
+      key: 'values',
+      eyebrow: 'Valores',
+      title: 'Excelência, amor, respeito, união e alegria.',
+      text:
+        'Excelência é nossa palavra de ordem. Cultivamos um ambiente direcionado pelo amor, respeito, união e alegria.',
+    },
   ];
 
   return (
@@ -94,6 +161,9 @@ export default function AcademiaAcqualitaLandingPage() {
             <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
               <a href="#beneficios" className="transition hover:text-white">
                 Benefícios
+              </a>
+              <a href="#proposito" className="transition hover:text-white">
+                Essência
               </a>
               <a href="#servicos" className="transition hover:text-white">
                 Modalidades
@@ -246,6 +316,53 @@ export default function AcademiaAcqualitaLandingPage() {
                 >
                   <div className="mb-5 h-px w-16 bg-gradient-to-r from-[#050505] via-emerald-500 to-transparent" />
                   <p className="text-lg font-medium leading-8 text-[#0B1F3A]">{benefit}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="proposito" className="mx-auto max-w-7xl px-6 pb-20">
+          <div className="overflow-hidden rounded-[2.75rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f5fbf7_100%)] p-8 shadow-[0_22px_70px_rgba(2,6,23,0.06)] md:p-10">
+            <div className="max-w-3xl">
+              <p className="text-sm uppercase tracking-[0.34em] text-emerald-700/80">
+                Essência Acqualitá
+              </p>
+              <h2
+                style={brandSerif}
+                className="mt-4 text-4xl font-semibold leading-tight text-[#0B1F3A] md:text-6xl"
+              >
+                Missão, visão e valores que sustentam a marca.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-slate-600">
+                Esse conteúdo se encaixa melhor aqui porque fortalece a identidade da academia
+                antes da apresentação das modalidades.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {purposeItems.map((item) => (
+                <div
+                  key={item.key}
+                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-[0_12px_40px_rgba(2,6,23,0.04)]"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700">
+                      <PurposeIcon type={item.key} />
+                    </div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-700">
+                      {item.eyebrow}
+                    </p>
+                  </div>
+
+                  <h3
+                    style={brandSerif}
+                    className="mt-6 text-3xl font-semibold leading-tight text-[#0B1F3A]"
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-5 text-base leading-8 text-slate-600">{item.text}</p>
                 </div>
               ))}
             </div>
